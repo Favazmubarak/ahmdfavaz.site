@@ -1,8 +1,9 @@
 "use client";
 import { AboutSection } from "@/components/AboutSection";
+import ContactPage from "@/components/ContactPage";
 import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
-import { ProjectsSection } from "@/components/ProjectSection";
+import PortfolioPage from "@/components/ProjectSection";
 import React from "react";
 
 export default function Home() {
@@ -38,7 +39,8 @@ export default function Home() {
       {/* AFTER HERO → NORMAL WHITE/BLACK BACKGROUND */}
       <div className="bg-[#050914] w-full">
         <AboutSection />
-        <ProjectsSection />
+        <PortfolioPage />
+        <ContactPage/>
       </div>
 
     </div>

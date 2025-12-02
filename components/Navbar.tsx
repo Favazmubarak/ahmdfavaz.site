@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaEnvelope, FaWhatsapp, FaPhone, FaChevronDown } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
 
 export function Navbar() {
   const menuItems = ["Home", "About", "Projects", "Resume"];
@@ -130,7 +130,7 @@ export function Navbar() {
               href="mailto:yourmail@example.com"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaEnvelope className="text-cyan-100" /> 
+              <FaEnvelope className="text-red-500/80" /> 
               <span>Email</span>
             </a>
             <a
@@ -138,14 +138,14 @@ export function Navbar() {
               target="_blank"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaWhatsapp className="text-cyan-100" /> 
+              <FaWhatsapp className="text-green-500" /> 
               <span>WhatsApp</span>
             </a>
             <a
               href="tel:+1234567890"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaPhone className="text-cyan-100" /> 
+              <FaPhoneAlt className="text-blue-500" /> 
               <span>Call</span>
             </a>
           </div>
