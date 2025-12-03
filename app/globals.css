@@ -1,4 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Science+Gothic:wght@100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Pacifico&family=Science+Gothic:wght@100..900&display=swap');
 @import "tailwindcss";
+
+.font_science {
+  font-family: "Science Gothic", sans-serif;
+}
+.font_new{
+ font-family: "Pacifico", cursive;
+}
+
 
 :root {
   --background: #ffffff;
@@ -24,3 +36,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+

@@ -65,7 +65,7 @@ export function Navbar() {
           }
       `}</style> */}
 
-      <nav className="navbar-glass fixed top-6 left-1/2 -translate-x-1/2 px-4 py-2 flex justify-between items-center bg-transparent backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50 relative overflow-visible transition-all duration-300 hidden sm:flex ">
+      <nav className="navbar-glass relative top-6 left-1/2 -translate-x-1/2 px-4 py-2  justify-between items-center bg-transparent backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50  overflow-visible transition-all duration-300 hidden sm:flex ">
         {/* Animated border glow on hover */}
         {hovered && (
           <div
@@ -78,12 +78,12 @@ export function Navbar() {
         )}
 
         {/* Logo */}
-        <div className="z-10 text-lg font-semibold tracking-wide text-cyan-400">
-          Ahmd
+        <div className="z-10 text-lg font-semibold tracking-wide text-cyan-400  pl-2 font_science">
+           AHMD
         </div>
 
         {/* Center menu items */}
-        <ul className="z-10 flex gap-3 text-sm">
+        <ul className="z-10 flex gap-2  text-sm">
           {menuItems.map((item) => (
             <li
               key={item}
