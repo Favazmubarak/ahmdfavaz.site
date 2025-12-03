@@ -14,15 +14,15 @@ export function HeroSection() {
         Crafting clean systems, solving messy problems, and turning ideas into something people can actually use.
       </p> */}
       <div className="flex justify-start gap-4 mt-8 ">
-        <button className="px-6 py-3 text-sm font-medium bg-blue-600 hover:bg-blue-500 rounded-xl">Get in Touch</button>
+       
  <button
   className="group inline-flex items-center gap-3 font-semibold rounded-full 
-         px-5 py-3 text-white bg-transparent cursor-pointer 
+         px-6 py-3 text-white bg-transparent cursor-pointer 
          transition-colors duration-300 hover:bg-transparent overflow-hidden"
 >
   <span
     className="relative w-[25px] h-[25px] grid place-items-center bg-white text-black
-           rounded-full overflow-hidden group-hover:text-black"
+           rounded-full overflow-hidden group-hover:text-red-800/90"
   >
   
     <svg
@@ -51,7 +51,7 @@ export function HeroSection() {
     </svg>
   </span>
 
- Resume
+Download CV
 </button>
 
 
