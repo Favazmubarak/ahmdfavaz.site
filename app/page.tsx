@@ -16,14 +16,14 @@ export default function Home() {
         <div className="absolute w-full h-screen">
   <LightRays
     raysOrigin="top-center"
-    raysColor="#00ffff"
-    raysSpeed={1}
-    lightSpread={0.8}
-    rayLength={1.2}
+    raysColor="#0fffff"
+    raysSpeed={0.5}
+    lightSpread={0.3}
+    rayLength={2}
     followMouse={true}
     mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
+    noiseAmount={0}
+    distortion={0}
     className="custom-rays"
   />
 </div>

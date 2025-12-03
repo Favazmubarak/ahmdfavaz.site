@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
 
 export function Navbar() {
-  const menuItems = ["HOME", "ABOUT ME", "PROJECTS"];
+  const menuItems = ["HOME", "ABOUT", "PROJECTS"];
   const [hovered, setHovered] = useState<string | null>(null);
   const [showConnect, setShowConnect] = useState(false);
   const [glowPosition, setGlowPosition] = useState(0);
@@ -65,7 +65,7 @@ export function Navbar() {
           }
       `}</style> */}
 
-      <nav className="navbar-glass fixed top-6 left-1/2 -translate-x-1/2 px-4 py-2 flex justify-between items-center bg-black/40 backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50 relative overflow-visible transition-all duration-300 hidden sm:flex ">
+      <nav className="navbar-glass fixed top-6 left-1/2 -translate-x-1/2 px-4 py-2 flex justify-between items-center bg-transparent backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50 relative overflow-visible transition-all duration-300 hidden sm:flex ">
         {/* Animated border glow on hover */}
         {hovered && (
           <div
@@ -116,7 +116,7 @@ export function Navbar() {
          <div
             className={`
               absolute right-0 mt-5 w-45 
-              bg-black/60 backdrop-blur-lg border border-cyan-400/10
+              bg-transparent backdrop-blur-lg border border-cyan-400/10
               rounded-2xl shadow-lg p-4  flex flex-col gap-2 text-white text-sm
               transition-all duration-500
               ${
@@ -145,7 +145,7 @@ export function Navbar() {
               href="tel:+1234567890"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaPhoneAlt className="text-blue-500" /> 
+              <FaPhoneAlt className="text-cyan-500" /> 
               <span>Call</span>
             </a>
           </div>
