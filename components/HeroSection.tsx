@@ -1,4 +1,5 @@
 import React from "react";
+// import Silk from './Silk';
 
 export function HeroSection() {
   return (

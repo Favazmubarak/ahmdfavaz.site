@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <>
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes neon-glow {
           0%, 100% {
             box-shadow: 0 0 5px rgba(0, 255, 255, 0.5),
@@ -63,7 +63,7 @@ export function Navbar() {
           .float-animation {
             animation: float 2s ease-in-out;
           }
-      `}</style>
+      `}</style> */}
 
       <nav className="navbar-glass fixed top-6 left-1/2 -translate-x-1/2 px-4 py-2 flex justify-between items-center bg-black/40 backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50 relative overflow-visible transition-all duration-300 hidden sm:flex ">
         {/* Animated border glow on hover */}
