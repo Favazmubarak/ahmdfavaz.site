@@ -2,7 +2,7 @@ import React from "react";
 
 export function HeroSection() {
   return (
-    <section className="w-full mt-40 text-center text-white">
+    <section className="w-full mt-40 text-center text-white hidden sm:block">
       <h1 className="text-5xl font-bold leading-tight">AHAMMED FAVAZ K M</h1>
       <p className="mt-3 text-lg tracking-wide text-blue-400">Full Stack Developer</p>
       <p className="max-w-xl mx-auto mt-6 text-sm text-gray-300">
