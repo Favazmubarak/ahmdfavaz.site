@@ -115,7 +115,7 @@ export function Navbar() {
           {/* Glass popup card with floating animation */}
          <div
             className={`
-              float-animation absolute right-0 mt-5 w-45 
+              absolute right-0 mt-5 w-45 
               bg-black/60 backdrop-blur-lg border border-cyan-400/10
               rounded-2xl shadow-lg p-4 flex flex-col gap-2 text-white text-sm
               transition-all duration-500
