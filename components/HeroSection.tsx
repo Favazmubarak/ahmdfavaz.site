@@ -8,8 +8,8 @@ export function HeroSection() {
         <h1 className="text-2xl font_new">hello,</h1>
       </div>
     
-      <h1 className="text-6xl font-bold leading-tight ">FULL STACK</h1>
-      <p className="mt-3 text-8xl tracking-wide text-cyan-400   "> DEVELOPER </p>
+      <h1 className="text-5xl font-bold leading-tight font_science"> I'm a FULL STACK</h1>
+      <p className="mt-3 text-8xl text-cyan-400  font_science "> DEVELOPER </p>
       {/* <p className="max-w-xl mx-auto mt-6 text-sm text-gray-300">
         Crafting clean systems, solving messy problems, and turning ideas into something people can actually use.
       </p> */}
