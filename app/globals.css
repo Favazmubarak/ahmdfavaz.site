@@ -1,17 +1,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Science+Gothic:wght@100..900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Pacifico&family=Science+Gothic:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Momo+Trust+Display&family=Pacifico&family=Righteous&family=Science+Gothic:wght@100..900&display=swap');
 @import "tailwindcss";
 
 .font_science {
   font-family: "Science Gothic", sans-serif;
 }
-.font_new{
+.font_pacifico{
  font-family: "Pacifico", cursive;
 }
-
-
+.font_Right {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bunge {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
