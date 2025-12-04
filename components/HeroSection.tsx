@@ -22,7 +22,7 @@ export function HeroSection() {
 >
   <span
     className="relative w-[25px] h-[25px] grid place-items-center bg-white text-black
-           rounded-full overflow-hidden group-hover:text-red-800/90"
+           rounded-full overflow-hidden group-hover:bg-black group-hover:text-white"
   >
   
     <svg
