@@ -34,7 +34,7 @@ export default function Home() {
             noiseAmount={0}
             distortion={0}
             className="custom-rays"
-          />
+          />  
         </div>
 
         {/* Hero Content */}

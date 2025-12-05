@@ -5,34 +5,35 @@ export function HeroSection() {
   return (
     <section className="w-full mt-20 text-left text-white hidden sm:block">
       <div className="flex gap-2 ">
-        <h1 className="text-2xl font_science font-light">Hello, I am</h1>
+        {/* <h1 className="text-2xl font_science font-light">Hello, I am</h1> */}
       </div>
       
-      <div className="flex gap-5 font-extrabold ">
+      <div className=" gap-5 ">
         {/* <h1 className="text-5xl leading-tight font_science">I'm</h1> */}
         {/* <h1 className="font_science text-cyan-400 text-5xl leading-tight tracking-tighter font-light ">
           I am
         </h1> */}
-        <h1 className=" font_Science text-cyan-400 text-5xl leading-tight  ">
-         ______ AHMD
+        <h1 className=" font_Right text-cyan-300 text-8xl   ">
+         Ahammed
         </h1>
-           <h1 className="font_Science text-cyan-400  text-5xl leading-tight  ">
-          FAVAZ 
+           <h1 className="font_Right text-white text-9xl   ">
+          Favaz k m
         </h1>
       </div>
     
       {/* <p className="mt-3 text-6xl text-cyan-400 ">SOFTWARE DEVELOPER</p> */}
-<TextType 
+{/* <TextType 
   text={["Software Developer", "UI/UX Designer"]}
   typingSpeed={75}
   pauseDuration={1500}
   showCursor={true}
   cursorCharacter="_"
-  className="text-7xl font-bold leading-tight tracking-wide text-cyan-100 font_Right"
-/>
-      {/* <p className="max-w-xl mx-auto mt-6 text-sm text-gray-300">
-        Crafting clean systems, solving messy problems, and turning ideas into something people can actually use.
-      </p> */}
+  className="text-5xl font-bold leading-tight tracking-wide text-cyan-100 font_Right"
+/> */}
+      <p className=" left-0max-w-sm mx-auto mt-6 text-sm text-white font_science font-light">
+        Hello, my name is Ahammed Favaz,nice to meet you I would like to <br /> welcome you with my personal portfolio
+      </p>
+
       <div className="flex justify-start gap-4 mt-8 ">
         <button
           className="group inline-flex items-center gap-3 font-semibold rounded-full 
