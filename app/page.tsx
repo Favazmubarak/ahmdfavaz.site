@@ -1,5 +1,5 @@
 "use client";
-import { AboutSection } from "@/components/AboutSection";
+import AboutSection  from "@/components/AboutSection";
 import ContactPage from "@/components/ContactPage";
 import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";

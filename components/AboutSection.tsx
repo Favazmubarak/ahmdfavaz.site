@@ -1,77 +1,108 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
-export function AboutSection() {
+export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="w-full max-w-5xl px-6 py-24 mx-auto text-white"
-    >
-      <h2 className="mb-6 text-3xl font-bold text-blue-400 md:text-4xl">
-        About Me
-      </h2>
+    <section className="relative w-full h-screen bg-gradient-to-b from-[#0a0a0a] via-[#000a0e] to-[#013242]  text-white overflow-hidden py-32 px-6 md:px-12 lg:px-24">
 
-      <p className="max-w-3xl leading-relaxed text-gray-300">
-        I build clean systems and solve practical problems using modern web
-        technologies. I focus on delivering things that actually work in the
-        real world, not just something that looks good on paper. I enjoy making
-        products that feel smooth, fast, and predictable.
-      </p>
+      {/* Floating Wireframe Icon Left */}
+      {/* <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 0.2, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute left-10 top-1/3 opacity-20 hidden md:block"
+      >
+        <WireCube />
+      </motion.div> */}
 
-      <div className="grid gap-10 mt-10 md:grid-cols-2">
-        <div>
-          <h3 className="mb-3 text-xl font-semibold text-blue-300">
-            What I Do
-          </h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              Full-stack development with React, Next.js, Node.js
-            </li>
+      {/* Floating Wireframe Icon Right
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 0.2, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute right-10 top-20 opacity-20 hidden md:block"
+      >
+        <WireCube />
+      </motion.div> */}
 
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              REST API and database design
-            </li>
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
 
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              Clean UI and smooth user experience
-            </li>
+        {/* LEFT SIDE TEXT */}
+        <div className="lg:w-1/2">
+          <p className="text-cyan-400 font-medium tracking-wide mb-4 font_science">About Me</p>
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
+            I can deliver results that<br />exceed your expectations.
+          </h1>
 
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              Problem solving, optimization, workflow automation
-            </li>
-          </ul>
+          <button className="group mt-6 px-6 py-3 rounded-full border border-white/20 flex items-center gap-3 hover:bg-white hover:text-black transition">
+            Hire Me Now
+            <svg
+              width="18"
+              height="18"
+              fill="currentColor"
+              className="transition-transform group-hover:translate-x-1"
+            >
+              <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" />
+            </svg>
+          </button>
         </div>
 
-        <div>
-          <h3 className="mb-3 text-xl font-semibold text-blue-300">
-            Tech Stack
-          </h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              React, Next.js, Tailwind CSS
-            </li>
+        {/* RIGHT SIDE DESCRIPTION */}
+        <div className="lg:w-1/2 max-w-xl">
+          <p className="text-[15px] leading-relaxed text-gray-300 mb-10">
+            Hi, I'm Amalia Sanchez. I have an understanding of the relationship 
+            between design and users through detailed execution and proper user 
+            experience. I love working on interesting and meaningful projects 
+            that I can be proud of. I always strive to create clean, pixel-perfect 
+            interfaces that are smoothly animated. I prioritize quality, perfect 
+            graphic design and optimized development.
+          </p>
 
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              Node.js, Express, MongoDB
-            </li>
-
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              PostgreSQL, Prisma, Firebase
-            </li>
-
-            <li className="flex gap-3">
-              <span className="text-blue-400">•</span>
-              Git, Docker, Linux
-            </li>
-          </ul>
+          {/* METRICS
+          <div className="flex items-center gap-10 md:gap-20 mt-8">
+            <Metric number="312+" label="Project Complete" />
+            <Metric number="281+" label="World Clients" />
+            <Metric number="10+" label="Years Experience" />
+          </div> */}
         </div>
+
       </div>
+
+      {/* NEON STRIP
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        whileInView={{ y: -100, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="absolute bottom-0 left-0 w-full rotate-[-8deg] bg-cyan-400 text-black font-bold 
+                   text-xl py-4 px-6 whitespace-nowrap"
+      >
+        BRANDING • UI/UX DESIGN • DEVELOPMENT • ICONOGRAPHY • PRODUCT DESIGN •
+      </motion.div> */}
+
     </section>
   );
 }
+//   function WireCube() {
+//   return (
+//     <svg width="90" height="90" stroke="white" fill="none" strokeWidth="1">
+//       <polygon points="45,5 80,25 80,65 45,85 10,65 10,25" />
+//       <line x1="45" y1="5" x2="45" y2="45" />
+//       <line x1="80" y1="25" x2="45" y2="45" />
+//       <line x1="10" y1="25" x2="45" y2="45" />
+//     </svg>
+//   );
+// }
+// interface MetricProps {
+//   number: string;
+//   label: string;
+// }
+
+// function Metric({ number, label }: MetricProps) {
+//   return (
+//     <div className="flex flex-col">
+//       <h2 className="text-3xl font-semibold text-[#A6FF00]">{number}</h2>
+//       <p className="text-gray-400 text-sm mt-1">{label}</p>
+//     </div>
+//   );
+// }
