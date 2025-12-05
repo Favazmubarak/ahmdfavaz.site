@@ -2,7 +2,7 @@ import React from "react";
 
 export function HeroSection() {
   return (
-    <section className="w-full mt-20 text-left text-white hidden sm:block">
+    <section className="w-full mt-20 text-left text-white">
       <div className="flex gap-2 ">
         {/* <h1 className="text-2xl font_science font-light">Hello, I am</h1> */}
       </div>
@@ -12,10 +12,16 @@ export function HeroSection() {
         {/* <h1 className="font_science text-cyan-400 text-5xl leading-tight tracking-tighter font-light ">
           I am
         </h1> */}
-        <h1 className=" font_Right text-cyan-300 text-8xl   ">Ahammed</h1>
-        <h1 className="font_Right text-white text-9xl   ">Favaz k m</h1>
+        <p className="font_science text-cyan-200 px-1.5 text-sm sm:text-xl">Software Developer</p>
+        <h1 className=" font_science text-white text-5xl sm:text-7xl font-bold  ">FAVAZ</h1>
+   
+          {" "}
+          <h1 className="font_science  text-cyan-400 text-5xl  font-bold sm:text-8xl ">
+            MUBARAK
+          </h1>
+      
       </div>
-      <p className=" left-0max-w-sm mx-auto mt-6 text-sm text-white font_science font-light">
+      <p className=" left-0max-w-sm mx-auto mt-5 text-xs sm:text-sm text-white font_science font-light px-1.5">
         Hello, my name is Ahammed Favaz,nice to meet you I would like to <br />{" "}
         welcome you with my personal portfolio
       </p>
@@ -24,7 +30,7 @@ export function HeroSection() {
         <button
           className="group inline-flex items-center gap-3 font-semibold rounded-full 
          px-6 py-3 text-white bg-transparent cursor-pointer 
-         transition-colors duration-300 hover:bg-transparent overflow-hidden"
+         transition-colors duration-300 hover:bg-transparent overflow-hidden " 
         >
           <span
             className="relative w-[25px] h-[25px] grid place-items-center bg-white text-black
