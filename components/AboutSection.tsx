@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export default function AboutSection() {
   return (
     <section className="relative w-full h-screen bg-gradient-to-b from-[#0a0a0a] via-[#000a0e] to-[#013242]  text-white overflow-hidden py-32 px-6 md:px-12 lg:px-24">
-
       {/* Floating Wireframe Icon Left */}
       {/* <motion.div
         initial={{ opacity: 0, x: -40 }}
@@ -27,12 +26,15 @@ export default function AboutSection() {
       </motion.div> */}
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-
         {/* LEFT SIDE TEXT */}
         <div className="lg:w-1/2">
-          <p className="text-cyan-400 font-medium tracking-wide mb-4 font_science">About Me</p>
+          <p className="text-cyan-400 font-medium tracking-wide mb-4 font_science">
+            About Me
+          </p>
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
-            I can deliver results that<br />exceed your expectations.
+            I can deliver results that
+            <br />
+            exceed your expectations.
           </h1>
 
           <button className="group mt-6 px-6 py-3 rounded-full border border-white/20 flex items-center gap-3 hover:bg-white hover:text-black transition">
@@ -50,13 +52,13 @@ export default function AboutSection() {
 
         {/* RIGHT SIDE DESCRIPTION */}
         <div className="lg:w-1/2 max-w-xl">
-          <p className="text-[15px] leading-relaxed text-gray-300 mb-10">
-            Hi, I'm Amalia Sanchez. I have an understanding of the relationship 
-            between design and users through detailed execution and proper user 
-            experience. I love working on interesting and meaningful projects 
-            that I can be proud of. I always strive to create clean, pixel-perfect 
-            interfaces that are smoothly animated. I prioritize quality, perfect 
-            graphic design and optimized development.
+          <p className="text-[15px] leading-relaxed text-gray-300 mt-10 mb-5 font-sans font-light">
+            Hi, I'm Ahmd Favaz. I'm a software developer focused on building
+            reliable, user-centered web applications. I work across the stack,
+            combining clean UI development with solid backend engineering to
+            deliver fast, stable, and practical solutions. I enjoy turning real
+            problems into well-designed products that feel intuitive, perform
+            smoothly, and scale with real use.
           </p>
 
           {/* METRICS
@@ -66,7 +68,6 @@ export default function AboutSection() {
             <Metric number="10+" label="Years Experience" />
           </div> */}
         </div>
-
       </div>
 
       {/* NEON STRIP
@@ -79,7 +80,6 @@ export default function AboutSection() {
       >
         BRANDING • UI/UX DESIGN • DEVELOPMENT • ICONOGRAPHY • PRODUCT DESIGN •
       </motion.div> */}
-
     </section>
   );
 }
