@@ -1,6 +1,6 @@
 "use client";
 import AboutSection  from "@/components/AboutSection";
-import ContactPage from "@/components/ContactPage";
+import ContactPage from "@/components/Gallery";
 import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
 import PortfolioPage from "@/components/ProjectSection";
