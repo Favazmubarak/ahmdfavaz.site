@@ -3,6 +3,7 @@ import React from "react";
 
 export default function AboutSection() {
   return (
+    
     <section className="relative w-full h-screen bg-gradient-to-b from-[#0a0a0a] via-[#000a0e] to-[#013242]  text-white overflow-hidden py-32 px-6 md:px-12 lg:px-24">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-16">
         {/* LEFT SIDE TEXT */}

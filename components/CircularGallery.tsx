@@ -488,10 +488,6 @@ class App {
         text: ''
       },
       {
-        image: `/chaicouple.jpg`,
-        text: ' '
-      },
-      {
         image: `/laptop.jpg`,
         text: ''
       },
