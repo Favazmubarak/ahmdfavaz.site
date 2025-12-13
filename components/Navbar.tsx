@@ -59,7 +59,7 @@ export function Navbar() {
         className={`
           fixed inset-x-0 z-50 mx-auto
           flex items-center
-          backdrop-blur-xl
+          backdrop-blur-lg
           border border-cyan-800/40
           shadow-xl
           rounded-full
@@ -67,7 +67,7 @@ export function Navbar() {
           ${
             isExpanded
               ? "top-6 max-w-3xl px-6 py-3 justify-between"
-              : "top-6 max-w-[8rem] px-6 py-3 justify-center"
+              : "top-6 max-w-[8rem] px-6 py-3 justify-center "
           }
           hidden sm:flex
         `}

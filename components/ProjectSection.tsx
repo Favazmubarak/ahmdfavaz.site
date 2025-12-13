@@ -10,7 +10,6 @@ import {
   Database,
   Layers,
 } from "lucide-react";
-import CircularGallery from "./CircularGallery";
 
 export default function MyWorksPage() {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,9 +1,8 @@
 "use client";
 import AboutSection from "@/components/AboutSection";
-import ContactPage from "@/components/Gallery";
-import { HeroSection } from "@/components/HeroSection";
+import ContactPage from "@/components/ContactPage";
+import { HeroSection } from "@/components/HomeSection";
 import { Navbar } from "@/components/Navbar";
-import PortfolioPage from "@/components/ProjectSection";
 import React from "react";
 import LightRays from "../components/LightRays";
 import ClickSpark from "../components/ClickSpark";
@@ -49,7 +48,6 @@ export default function Home() {
         {/* AFTER HERO → NORMAL WHITE/BLACK BACKGROUND */}
         <div className="bg-[#050914] w-full">
           <AboutSection />
-          <PortfolioPage />
           <ContactPage />
         </div>
       </ClickSpark>
