@@ -40,7 +40,7 @@ export default function Home() {
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col h-full px-6 md:px-12">
             <Navbar />
-            <div className="flex flex-col justify-between flex-grow mt-30">
+            <div className="flex flex-col justify-between flex-grow mt-50">
               <HeroSection />
             </div>
           </div>
