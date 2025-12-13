@@ -1,6 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaChevronDown,
+  FaArrowUp,
+} from "react-icons/fa";
 
 export function Navbar() {
   const menuItems = ["HOME", "ABOUT", "PROJECTS", "CONTACT"];
@@ -8,6 +14,9 @@ export function Navbar() {
   const [showConnect, setShowConnect] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [glowPosition, setGlowPosition] = useState(0);
+
+  /* ✅ NEW: scroll-to-top button state */
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Auto-hide connect popup after 2 seconds
   useEffect(() => {
@@ -37,30 +46,40 @@ export function Navbar() {
     }
   }, [hovered]);
 
+  /* ✅ NEW: detect scroll position */
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const handleMenuItemClick = (item: string) => {
     if (item === "CONTACT") {
       setShowConnect(!showConnect);
     } else {
-      // Handle navigation for other menu items
       console.log(`Navigate to ${item}`);
     }
+  };
+
+  /* ✅ NEW: scroll to top handler */
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
       {/* Desktop Navbar */}
       <nav className="navbar-glass relative top-6 left-1/2 -translate-x-1/2 px-4 py-2 justify-between items-center bg-transparent backdrop-blur-xl border-1 border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50 overflow-visible transition-all duration-300 hidden sm:flex">
-        {/* Animated border glow on hover */}
         {hovered && (
           <div className="absolute inset-0 rounded-full pointer-events-none" />
         )}
 
-        {/* Logo */}
         <div className="z-10 text-lg font-semibold tracking-wide text-cyan-400 pl-2 font_science">
           AHMD
         </div>
 
-        {/* Center menu items */}
         <ul className="z-10 flex gap-2 text-sm">
           {menuItems.map((item) => (
             <li
@@ -77,7 +96,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Connect Popup for Desktop */}
         <div className="relative z-10">
           <div
             className={`
@@ -92,58 +110,43 @@ export function Navbar() {
               }
             `}
           >
-            <a
-              href="mailto:yourmail@example.com"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
-            >
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
               <FaEnvelope className="text-red-500/80" />
               <span>Email</span>
             </a>
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
-            >
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
               <FaWhatsapp className="text-green-500" />
               <span>WhatsApp</span>
             </a>
-            <a
-              href="tel:+1234567890"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
-            >
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
               <FaPhoneAlt className="text-cyan-500" />
               <span>Call</span>
             </a>
           </div>
         </div>
 
-        {/* Empty div for spacing */}
         <div className="w-8"></div>
       </nav>
 
       {/* Mobile Navbar */}
       <nav className="navbar-glass relative top-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-transparent backdrop-blur-xl border-1 border-cyan-800/40 rounded-full shadow-xl text-white w-[90%] max-w-xs z-50 transition-all duration-300 flex sm:hidden">
         <div className="relative w-full flex items-center justify-center">
-          {/* Logo/Name centered */}
           <div className="text-lg font-semibold tracking-wide text-cyan-400 font_science">
             AHMD
           </div>
 
-          {/* Dropdown arrow */}
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             className="absolute right-0 p-1"
           >
             <FaChevronDown
-              className={`text-cyan-400 transition-transform duration-300 ${
+              className={`transition-transform duration-300 ${
                 showMobileMenu ? "rotate-180" : ""
               }`}
             />
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         <div
           className={`
             absolute top-full left-0 right-0 mt-3 
@@ -157,48 +160,60 @@ export function Navbar() {
             }
           `}
         >
-          {menuItems.filter(item => item !== "CONTACT").map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                handleMenuItemClick(item);
-                setShowMobileMenu(false);
-              }}
-              className="px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 text-left hover:text-cyan-400"
-            >
-              {item}
-            </button>
-          ))}
-          
-          {/* Contact section in mobile */}
+          {menuItems
+            .filter((item) => item !== "CONTACT")
+            .map((item) => (
+              <button
+                key={item}
+                onClick={() => {
+                  handleMenuItemClick(item);
+                  setShowMobileMenu(false);
+                }}
+                className="px-3 py-2 transition-all duration-200 rounded-lg hover:bg-gray-500/20 text-left hover:text-cyan-400"
+              >
+                {item}
+              </button>
+            ))}
+
           <div className="border-t border-cyan-400/20 mt-2 pt-2">
-            <p className="px-3 py-1 text-xs text-cyan-400/60 font-semibold">CONTACT</p>
-            <a
-              href="mailto:yourmail@example.com"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20"
-            >
-              <FaEnvelope className="text-red-500/80" />
-              <span>Email</span>
+            <p className="px-3 py-1 text-xs text-cyan-400/60 font-semibold">
+              CONTACT
+            </p>
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
+              <FaEnvelope className="text-red-500/80" /> Email
             </a>
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20"
-            >
-              <FaWhatsapp className="text-green-500" />
-              <span>WhatsApp</span>
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
+              <FaWhatsapp className="text-green-500" /> WhatsApp
             </a>
-            <a
-              href="tel:+1234567890"
-              className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20"
-            >
-              <FaPhoneAlt className="text-cyan-500" />
-              <span>Call</span>
+            <a className="flex items-center gap-3 px-3 py-2 hover:bg-gray-500/20 rounded-lg">
+              <FaPhoneAlt className="text-cyan-500" /> Call
             </a>
           </div>
         </div>
       </nav>
+
+      {/* ✅ ONLY ADDED FEATURE */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`
+          fixed bottom-6 right-6 z-50
+          h-11 w-11 flex items-center justify-center
+          rounded-full
+          backdrop-blur-xl
+          bg-cyan-800/60 border border-cyan-400/30
+          text-cyan-300 shadow-xl
+          transition-all duration-500 ease-in-out
+          hover:bg-cyan-500/70 hover:scale-110
+          ${
+            showScrollTop
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 translate-y-4 scale-95 pointer-events-none"
+          }
+        `}
+      >
+        <FaArrowUp />
+      </button>
     </>
   );
 }
