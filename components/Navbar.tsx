@@ -1,12 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaChevronDown,
+} from "react-icons/fa";
 
 export function Navbar() {
   const menuItems = ["HOME", "ABOUT", "PROJECTS"];
   const [hovered, setHovered] = useState<string | null>(null);
   const [showConnect, setShowConnect] = useState(false);
   const [glowPosition, setGlowPosition] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   // Auto-hide connect popup after 2 seconds
   useEffect(() => {
@@ -26,6 +32,15 @@ export function Navbar() {
       return () => clearInterval(interval);
     }
   }, [hovered]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -65,7 +80,23 @@ export function Navbar() {
           }
       `}</style> */}
 
-      <nav className="navbar-glass relative top-6 left-1/2 -translate-x-1/2 px-4 py-2  justify-between items-center bg-transparent backdrop-blur-xl border-1  border-cyan-800/40 rounded-full shadow-xl text-white w-[80%] max-w-3xl z-50  overflow-visible transition-all duration-300 hidden sm:flex ">
+      <nav
+        className={`
+    fixed inset-x-0 z-50 mx-auto
+    flex items-center
+    backdrop-blur-xl
+    border border-cyan-800/40
+    shadow-xl
+    rounded-full
+    transition-all duration-500 ease-in-out
+    ${
+      scrolled
+        ? "top-6 max-w-[9rem] max-h-[55px] px-6 py-3 justify-center scale-[0.90]"
+        : "top-6 max-w-3xl px-6 py-3 justify-between"
+    }
+    hidden sm:flex
+  `}
+      >
         {/* Animated border glow on hover */}
         {hovered && (
           <div
@@ -78,12 +109,21 @@ export function Navbar() {
         )}
 
         {/* Logo */}
-        <div className="z-10 text-lg font-semibold tracking-wide text-cyan-400  pl-2 font_science">
-           AHMD
+        <div className="z-10 text-lg font-semibold tracking-wide text-cyan-400 font_science">
+          AHMD
         </div>
 
         {/* Center menu items */}
-        <ul className="z-10 flex gap-2  text-sm">
+        <ul
+          className={`
+    flex gap-2 text-sm transition-all duration-500 ease-in-out
+    ${
+      scrolled
+        ? "opacity-0 scale-95 pointer-events-none w-0 overflow-hidden"
+        : "opacity-100 scale-100"
+    }
+  `}
+        >
           {menuItems.map((item) => (
             <li
               key={item}
@@ -91,8 +131,6 @@ export function Navbar() {
               onMouseEnter={() => setHovered(item)}
               onMouseLeave={() => setHovered(null)}
             >
-           
-
               <span className="relative z-10 transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]">
                 {item}
               </span>
@@ -101,7 +139,16 @@ export function Navbar() {
         </ul>
 
         {/* Connect Button */}
-        <div className="relative z-10">
+        <div
+          className={`
+    relative z-10 transition-all duration-500 ease-in-out
+    ${
+      scrolled
+        ? "opacity-0 scale-95 pointer-events-none w-0 overflow-hidden"
+        : "opacity-100 scale-100"
+    }
+  `}
+        >
           <button
             onClick={() => setShowConnect(true)}
             onMouseEnter={() => setHovered("connect")}
@@ -109,11 +156,15 @@ export function Navbar() {
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 bg-cyan-800/50 hover:bg-cyan-500/50 border-0 rounded-full ]"
           >
             <span>Connect Me</span>
-            <FaChevronDown className={`text-sm transition-transform duration-300 ${showConnect ? 'rotate-180' : ''}`} />
+            <FaChevronDown
+              className={`text-sm transition-transform duration-300 ${
+                showConnect ? "rotate-180" : ""
+              }`}
+            />
           </button>
 
           {/* Glass popup card with floating animation */}
-         <div
+          <div
             className={`
               absolute right-0 mt-5 w-45 
               bg-transparent backdrop-blur-lg border border-cyan-400/10
@@ -130,7 +181,7 @@ export function Navbar() {
               href="mailto:yourmail@example.com"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaEnvelope className="text-red-500/80" /> 
+              <FaEnvelope className="text-red-500/80" />
               <span>Email</span>
             </a>
             <a
@@ -138,14 +189,14 @@ export function Navbar() {
               target="_blank"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaWhatsapp className="text-green-500" /> 
+              <FaWhatsapp className="text-green-500" />
               <span>WhatsApp</span>
             </a>
             <a
               href="tel:+1234567890"
               className="flex items-center gap-3 px-3 py-2 transition-all duration-200 border border-transparent rounded-lg hover:bg-gray-500/20 group"
             >
-              <FaPhoneAlt className="text-cyan-500" /> 
+              <FaPhoneAlt className="text-cyan-500" />
               <span>Call</span>
             </a>
           </div>
