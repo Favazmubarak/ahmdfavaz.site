@@ -192,7 +192,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
@@ -217,4 +216,3 @@ export function Navbar() {
     </>
   );
 }
-
