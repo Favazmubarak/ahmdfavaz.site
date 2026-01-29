@@ -64,9 +64,26 @@ export function Navbar() {
   };
 
   /* ✅ NEW: scroll to top handler */
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+ const scrollToTop = () => {
+  const duration = 600; // ms
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  const animate = (currentTime: number) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    window.scrollTo(0, start * (1 - ease));
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
   };
+
+  requestAnimationFrame(animate);
+};
+
 
   return (
     <>
