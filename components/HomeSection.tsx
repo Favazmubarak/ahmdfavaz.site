@@ -16,8 +16,8 @@ export function HeroSection() {
       </h1>
 
       <p className="max-w-sm mt-5 text-xs sm:text-sm text-white font_science font-light px-1.5">
-        Hello, my name is Ahammed Favaz, nice to meet you.
-        I would like to welcome you with my personal portfolio.
+        Hello, my name is Ahammed Favaz, nice to meet you. I would like to
+        welcome you with my personal portfolio.
       </p>
 
       <div className="flex justify-start gap-4 mt-8">
@@ -58,4 +58,3 @@ export function HeroSection() {
     </section>
   );
 }
-
