@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="flex justify-start gap-4 mt-8">
         <a
           href="/IND AHAMMED FAVAZ SOFTWARE DEVELOPER CV.pdf"
-          download="AHMD-FAVAZ SOFTWARE-DEVELOPER CV.pdf"
+          download="AHAMMED FAVAZ SOFTWARE-DEVELOPER CV.pdf"
           className="group inline-flex items-center gap-3 font-semibold rounded-full
           px-6 py-3 text-white bg-transparent cursor-pointer
           transition-colors duration-300 hover:bg-transparent overflow-hidden"
