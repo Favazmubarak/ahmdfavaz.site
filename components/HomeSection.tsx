@@ -20,7 +20,6 @@ export function HeroSection() {
         welcome you with my personal portfolio.
       </p>
 
-
       <div className="flex justify-start gap-4 mt-8">
         <a
           href="/IND AHAMMED FAVAZ SOFTWARE DEVELOPER CV.pdf"
