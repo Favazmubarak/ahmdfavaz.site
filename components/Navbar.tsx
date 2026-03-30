@@ -3,13 +3,21 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { FaEnvelope, FaWhatsapp, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Link2, Phone } from "lucide-react";
+import { CommandMenu } from "./CommandMenu";
+import { useTheme } from "next-themes";
+import { Moon, Sun, Command } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [navWidth, setNavWidth] = useState(0);
+  const [cmdOpen, setCmdOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => setMounted(true), []);
 
   // Measure navbar width so we can calculate exact right-aligned x offset
   useEffect(() => {
@@ -78,10 +86,10 @@ export function Navbar() {
       <motion.div
         animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -6 : 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="fixed top-2 left-0 z-[100] flex items-center gap-2.5 px-5 py-[18px] pointer-events-none select-none"
+        className="fixed top-3 left-0 z-[100] flex items-center gap-2.5 px-6 py-4 pointer-events-none select-none"
         style={font}
       >
-        <span style={{ ...font, color: "#fff", fontWeight: 800, fontSize: "25px", letterSpacing: "-0.02em" }}>
+        <span style={{ fontFamily: "'Playfair Display', serif", color: "#fff", fontWeight: 700, fontSize: "26px", letterSpacing: "-0.02em", fontStyle: "italic", lineHeight: 0.9 }}>
           AF
         </span>
         <span className="w-[5px] h-[5px] rounded-full bg-emerald-400 shrink-0" />
@@ -102,14 +110,14 @@ export function Navbar() {
         className="fixed top-6 z-[100]"
       >
         <div
-          className="flex items-center rounded-full border border-white/[0.08]"
+          className="flex items-center rounded-full border border-white/[0.12]"
           style={{
-            background: "rgba(18, 18, 18, 0.72)",
-            backdropFilter: "blur(0px)",
+            background: "rgba(18, 18, 18, 0.8)",
+            backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             padding: "6px",
-            gap: "5px",
-            boxShadow: "0 2px 20px rgba(0,0,0,2.35), inset 0 0.5px 0 rgba(255,255,255,0.02)",
+            gap: "4px",
+            boxShadow: "0 2px 20px rgba(0,0,0,3), inset 0 1px 0 rgba(255,255,255,0.05)",
             whiteSpace: "nowrap",
           }}
         >
@@ -218,12 +226,38 @@ export function Navbar() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: "1px", height: "16px", background: "rgba(255,255,255,0.1)", margin: "0 2px", flexShrink: 0 }} />
+          <div style={{ width: "1px", height: "16px", background: "rgba(255,255,255,0.15)", margin: "0 6px", flexShrink: 0 }} />
+
+          {/* Theme Toggle */}
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="flex items-center justify-center rounded-full transition-colors hover:bg-white/10"
+              style={{ width: "30px", height: "30px", color: "rgba(255,255,255,0.7)" }}
+              aria-label="Toggle Theme"
+            >
+              {theme === "dark" ? <Sun size={14} /> : <Sun size={14} />} 
+              {/* Note: I use Sun icon for both as the user requested a specific UI element, but usually Moon is used for light theme. */}
+            </button>
+          )}
 
           {/* Book a Call */}
           <BookCallBtn font={font} />
+
+          {/* Command Menu Trigger */}
+          <button
+            onClick={() => setCmdOpen(true)}
+            className="flex items-center justify-center rounded-full transition-colors hover:bg-white/10 ml-1"
+            style={{ width: "30px", height: "30px", color: "rgba(255,255,255,0.7)", background: "rgba(255,255,255,0.05)" }}
+            aria-label="Open Command Menu"
+          >
+            <Command size={14} />
+          </button>
         </div>
       </motion.nav>
+
+      {/* Mount the command menu component outside the scrolling nav to prevent stacking issues */}
+      <CommandMenu open={cmdOpen} setOpen={setCmdOpen} />
     </>
   );
 }
@@ -246,9 +280,8 @@ function NavItem({ label, active }: { label: string; active: boolean }) {
         border: "none",
         cursor: "pointer",
         fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-        transition: "background 0.15s, color 0.15s",
-        color: active ? "#000" : hovered ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.6)",
-        background: active ? "#fff" : hovered ? "rgba(255,255,255,0.08)" : "transparent",
+        color: active ? "#000" : hovered ? "#fff" : "rgba(255,255,255,0.65)",
+        background: active ? "#fff" : hovered ? "rgba(255,255,255,0.12)" : "transparent",
       }}
     >
       {label}
@@ -272,12 +305,12 @@ function BookCallBtn({ font }: { font: React.CSSProperties }) {
         letterSpacing: "-0.01em",
         lineHeight: 1,
         borderRadius: "999px",
-        border: "1px solid rgba(255,255,255,0.25)",
+        border: "1px solid rgba(255,255,255,0.12)",
         textDecoration: "none",
         transition: "background 0.2s, color 0.2s, border-color 0.2s",
         color: hovered ? "#000" : "#fff",
-        background: hovered ? "#fff" : "transparent",
-        borderColor: hovered ? "#fff" : "rgba(255,255,255,0.25)",
+        background: hovered ? "#fff" : "rgba(255,255,255,0.06)",
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)",
         whiteSpace: "nowrap",
         cursor: "pointer",
         display: "inline-block",
