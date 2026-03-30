@@ -30,7 +30,7 @@ export function HeroSection() {
             style={{
               fontFamily: "'Anton', sans-serif",
               fontSize: "clamp(5rem, 15vw, 18rem)",
-              letterSpacing: "-0.01em",
+              letterSpacing: "0.050em",
               lineHeight: 1,
             }}
           >
@@ -43,9 +43,9 @@ export function HeroSection() {
               className="text-white/40 tracking-[0.25em] uppercase"
               style={{
                 fontFamily: "'Anton', sans-serif",
-                fontSize: "clamp(0.55rem, 1vw, 0.8rem)",
-                letterSpacing: "0.25em",
-                fontWeight: 400,
+                fontSize: "clamp(1.20rem, 1vw, 0.8rem)",
+                letterSpacing: "0.55em",
+                fontWeight: 100,
               }}
             >
               I design and build products that

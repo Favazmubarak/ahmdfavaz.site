@@ -78,10 +78,10 @@ export function Navbar() {
       <motion.div
         animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -6 : 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="fixed top-0 left-0 z-[100] flex items-center gap-2.5 px-5 py-[18px] pointer-events-none select-none"
+        className="fixed top-2 left-0 z-[100] flex items-center gap-2.5 px-5 py-[18px] pointer-events-none select-none"
         style={font}
       >
-        <span style={{ ...font, color: "#fff", fontWeight: 900, fontSize: "15px", letterSpacing: "-0.02em" }}>
+        <span style={{ ...font, color: "#fff", fontWeight: 800, fontSize: "25px", letterSpacing: "-0.02em" }}>
           AF
         </span>
         <span className="w-[5px] h-[5px] rounded-full bg-emerald-400 shrink-0" />
@@ -99,7 +99,7 @@ export function Navbar() {
       <motion.nav
         ref={navRef}
         style={{ x, left: "50%", fontFamily: font.fontFamily }}
-        className="fixed top-3 z-[100]"
+        className="fixed top-6 z-[100]"
       >
         <div
           className="flex items-center rounded-full border border-white/[0.08]"
@@ -107,9 +107,9 @@ export function Navbar() {
             background: "rgba(18, 18, 18, 0.72)",
             backdropFilter: "blur(0px)",
             WebkitBackdropFilter: "blur(20px)",
-            padding: "px",
-            gap: "3px",
-            boxShadow: "0 2px 20px rgba(0,0,0,0.35), inset 0 0.5px 0 rgba(255,255,255,0.06)",
+            padding: "6px",
+            gap: "5px",
+            boxShadow: "0 2px 20px rgba(0,0,0,2.35), inset 0 0.5px 0 rgba(255,255,255,0.02)",
             whiteSpace: "nowrap",
           }}
         >
