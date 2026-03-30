@@ -12,9 +12,9 @@ export function HeroSection() {
 
   return (
     <>
-      {/* Load Anton + Playfair Display from Google Fonts */}
+      {/* Load Inter + Playfair Display from Google Fonts */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital@1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
       `}</style>
 
       <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
@@ -24,28 +24,29 @@ export function HeroSection() {
           className={`flex flex-col items-center text-center transition-all duration-1000 ease-out w-full px-6
             ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          {/* FAVAZ — Anton, ~75% screen width */}
+          {/* FAVAZ — Inter Black, ~75% screen width */}
           <h1
-            className="text-white leading-none select-none w-full text-center"
+            className="text-white leading-none select-none w-full text-center tracking-tighter"
             style={{
-              fontFamily: "'Anton', sans-serif",
-              fontSize: "clamp(5rem, 15vw, 18rem)",
-              letterSpacing: "0.050em",
-              lineHeight: 1,
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "clamp(5rem, 17vw, 18rem)",
+              fontWeight: 900,
+              letterSpacing: "-0.04em",
+              lineHeight: 0.85,
             }}
           >
             FAVAZ
           </h1>
 
           {/* Tagline */}
-          <div className="mt-6 flex flex-col items-center gap-2">
+          <div className="mt-4 flex flex-col items-center gap-1">
             <p
-              className="text-white/40 tracking-[0.25em] uppercase"
+              className="text-[#a1a1aa] uppercase"
               style={{
-                fontFamily: "'Anton', sans-serif",
-                fontSize: "clamp(1.20rem, 1vw, 0.8rem)",
-                letterSpacing: "0.55em",
-                fontWeight: 100,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "clamp(0.7rem, 1.2vw, 1.1rem)",
+                letterSpacing: "0.3em",
+                fontWeight: 600,
               }}
             >
               I design and build products that
@@ -56,8 +57,8 @@ export function HeroSection() {
                 fontFamily: "'Playfair Display', Georgia, serif",
                 fontStyle: "italic",
                 fontWeight: 400,
-                fontSize: "clamp(1.6rem, 3.8vw, 3.5rem)",
-                lineHeight: 1.15,
+                fontSize: "clamp(2rem, 4.5vw, 4.5rem)",
+                lineHeight: 1.1,
               }}
             >
               deliver real impact.
