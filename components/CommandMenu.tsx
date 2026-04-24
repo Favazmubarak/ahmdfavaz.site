@@ -2,20 +2,36 @@
 import React, { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Briefcase, FileText, MessageSquare, MonitorSmartphone, Link2, Github, Linkedin, Twitter, Shield, FileCheck, Search, Moon, Sun } from "lucide-react";
+import {
+  Home, User, Briefcase, FileText, MessageSquare, MonitorSmartphone,
+  Link2, Github, Linkedin, Twitter, Shield, FileCheck, Search, Moon, Sun
+} from "lucide-react";
 
-export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: boolean) => void }) {
-  // Toggle the menu when ⌘K is pressed
+// No more props — CommandMenu manages its own state
+export function CommandMenu() {
+  const [open, setOpen] = useState(false);
+
+  // Keyboard shortcut ⌘K / Ctrl+K
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen(!open);
+        setOpen((prev) => !prev);
+      }
+      if (e.key === "Escape") {
+        setOpen(false);
       }
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [open, setOpen]);
+  }, []);
+
+  // Custom event from the ⌘ button in Navbar
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-command-menu", handler);
+    return () => window.removeEventListener("open-command-menu", handler);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -30,7 +46,7 @@ export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: 
             className="fixed inset-0 z-[200] bg-black/40 backdrop-blur-sm"
           />
 
-          {/* Dialog Container */}
+          {/* Dialog */}
           <div className="fixed inset-0 z-[201] flex items-center justify-center pointer-events-none p-4 w-full h-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.98, y: 10 }}
@@ -44,7 +60,7 @@ export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: 
               }}
             >
               <Command
-                className="w-full flex w-full flex-col font-sans"
+                className="w-full flex flex-col font-sans"
                 shouldFilter={true}
                 loop
                 label="Command Menu"
@@ -67,9 +83,7 @@ export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: 
                     overflow: auto;
                     padding: 8px 12px 12px;
                   }
-                  [cmdk-list]::-webkit-scrollbar {
-                    width: 6px;
-                  }
+                  [cmdk-list]::-webkit-scrollbar { width: 6px; }
                   [cmdk-list]::-webkit-scrollbar-thumb {
                     background: rgba(255,255,255,0.1);
                     border-radius: 4px;
@@ -100,47 +114,41 @@ export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: 
                     display: block;
                   }
                 `}</style>
+
                 <div className="flex items-center border-b border-white/[0.08] relative">
                   <Search className="absolute left-4 w-5 h-5 text-white/40" />
                   <Command.Input placeholder="Type a command or search..." autoFocus />
-                  
                   <div className="absolute right-4 flex items-center gap-2">
-                    <button className="w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 transition-colors">
-                      <Moon size={12} />
-                    </button>
-                    <div className="px-1.5 py-0.5 rounded flex items-center justify-center bg-white/5 border border-white/10 text-[10px] text-white/50 tracking-widest uppercase">
+                    <button
+                      onClick={() => setOpen(false)}
+                      className="px-1.5 py-0.5 rounded flex items-center justify-center bg-white/5 border border-white/10 text-[10px] text-white/50 tracking-widest uppercase hover:bg-white/10 transition-colors"
+                    >
                       esc
-                    </div>
+                    </button>
                   </div>
                 </div>
 
                 <Command.List>
-                  <Command.Empty className="py-6 text-center text-white/50 text-sm">No results found.</Command.Empty>
+                  <Command.Empty className="py-6 text-center text-white/50 text-sm">
+                    No results found.
+                  </Command.Empty>
 
                   <Command.Group heading="Pages">
-                    <CommandItem icon={<Home size={15}/>} title="Home" subtitle="Go to homepage" />
-                    <CommandItem icon={<User size={15}/>} title="About" subtitle="Learn more about me" />
-                    <CommandItem icon={<Briefcase size={15}/>} title="Projects" subtitle="View my work" />
-                    <CommandItem icon={<FileText size={15}/>} title="Blog" subtitle="Read my thoughts" />
-                    <CommandItem icon={<MessageSquare size={15}/>} title="Guestbook" subtitle="Leave a message" />
-                    <CommandItem icon={<MonitorSmartphone size={15}/>} title="Uses" subtitle="My tech stack" />
-                    <CommandItem icon={<Link2 size={15}/>} title="Links" subtitle="All my links" />
-                  </Command.Group>
-
-                  <Command.Group heading="Startups">
-                    <CommandItem icon={<span className="text-blue-400 font-bold text-xs">AF</span>} title="ProjectOne" subtitle="Amazing AI tool for devs" />
-                    <CommandItem icon={<span className="text-blue-400 font-bold text-xs">AF</span>} title="ProjectTwo" subtitle="SaaS platform" />
+                    <CommandItem icon={<Home size={15} />} title="Home" subtitle="Go to homepage" />
+                    <CommandItem icon={<User size={15} />} title="About" subtitle="Learn more about me" />
+                    <CommandItem icon={<Briefcase size={15} />} title="Projects" subtitle="View my work" />
+                    <CommandItem icon={<Link2 size={15} />} title="Links" subtitle="All my links" />
                   </Command.Group>
 
                   <Command.Group heading="Connect">
-                    <CommandItem icon={<Github size={15}/>} title="GitHub" subtitle="@mohammedfavaz" />
-                    <CommandItem icon={<Linkedin size={15}/>} title="LinkedIn" subtitle="Professional network" />
-                    <CommandItem icon={<Twitter size={15}/>} title="X (Twitter)" subtitle="@favaz_dev" />
+                    <CommandItem icon={<Github size={15} />} title="GitHub" subtitle="@Favazmubarak" />
+                    <CommandItem icon={<Linkedin size={15} />} title="LinkedIn" subtitle="linkedin.com/in/favazmubarak" />
+                    <CommandItem icon={<Twitter size={15} />} title="Instagram" subtitle="@ahmd.devx" />
                   </Command.Group>
 
-                  <Command.Group heading="Legal">
-                    <CommandItem icon={<Shield size={15}/>} title="Privacy Policy" subtitle="Data handling" />
-                    <CommandItem icon={<FileCheck size={15}/>} title="Terms of Service" subtitle="Usage rules" />
+                  <Command.Group heading="Contact">
+                    <CommandItem icon={<MessageSquare size={15} />} title="WhatsApp" subtitle="+91 7510363359" />
+                    <CommandItem icon={<FileText size={15} />} title="Email" subtitle="favazkoppath10@gmail.com" />
                   </Command.Group>
                 </Command.List>
 
@@ -163,7 +171,9 @@ export function CommandMenu({ open, setOpen }: { open: boolean, setOpen: (open: 
   );
 }
 
-function CommandItem({ icon, title, subtitle }: { icon: React.ReactNode, title: string, subtitle: string }) {
+function CommandItem({ icon, title, subtitle }: {
+  icon: React.ReactNode; title: string; subtitle: string;
+}) {
   return (
     <Command.Item value={`${title} ${subtitle}`}>
       <div className="flex items-center justify-between w-full">
