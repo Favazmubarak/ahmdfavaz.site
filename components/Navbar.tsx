@@ -80,8 +80,9 @@ export function Navbar() {
   return (
     <>
       <motion.div
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -6 : 0 }}
-        transition={{ duration: 0.35, ease: "easeInOut" }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-3 left-0 z-[100] flex items-center gap-2.5 px-6 py-4 pointer-events-none select-none"
       >
         <span
@@ -126,7 +127,13 @@ export function Navbar() {
         </div>
       </motion.div>
 
-      <div className="fixed z-[99]" style={{ top: "16px", right: "8px" }}>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed z-[99]" 
+        style={{ top: "16px", right: "8px" }}
+      >
         <button
           onClick={() =>
             window.dispatchEvent(new CustomEvent("open-command-menu"))
@@ -144,10 +151,13 @@ export function Navbar() {
         >
           <Command size={14} />
         </button>
-      </div>
+      </motion.div>
 
       <motion.nav
         ref={navRef}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         style={{ x, left: "50%", fontFamily: font.fontFamily }}
         className="fixed top-4 z-[100]"
       >
