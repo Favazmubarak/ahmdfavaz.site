@@ -12,35 +12,26 @@ import {
 } from "lucide-react";
 
 export default function MyWorksPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [floatingIcons, setFloatingIcons] = useState([]);
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#013242] via-[#001015] to-[#00080b] relative overflow-hidden">
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16">
+    <div className="min-h-screen bg-black relative overflow-hidden border-t border-white/5">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
         {/* Hero Section */}
         <section className="text-center relative mb-20">
           <h2
-            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white tracking-tight"
+            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-white tracking-[-0.04em] uppercase"
             style={{
-              fontFamily: "system-ui, -apple-system, sans-serif",
-              letterSpacing: "-0.02em",
+              fontFamily: "Inter, system-ui, -apple-system, sans-serif",
             }}
           >
-            <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
-              My Works
-            </span>
+            My Works
           </h2>
-          <p className="text-blue-200/80 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/40 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
             Explore my latest projects showcasing modern web development,
-            <br />
             innovative solutions, and clean design principles that bring
-            <br />
             ideas to life with cutting-edge technologies.
           </p>
         </section>
       </div>
-
     </div>
   );
 }

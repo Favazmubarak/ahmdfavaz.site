@@ -10,7 +10,7 @@ export default function Home() {
     <div className="w-full min-h-screen bg-black">
       <Navbar />
       <HeroSection />
-      <div className="bg-[#050914] w-full">
+      <div className="bg-black w-full">
         <AboutSection />
         <ContactPage />
       </div>
